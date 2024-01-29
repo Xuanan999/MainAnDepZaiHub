@@ -1,3 +1,6 @@
+
+
+
 function Attack1Function()
 	local ac = CombatFrameworkR.activeController
 	if ac and ac.equipped then
@@ -548,8 +551,8 @@ local NotiFrame = Instance.new("Frame")
 		end
 		)
 	end 
-	DiscordLib:Notification("Thông Báo" , "Nhận Cày Thuê Bán Acc v4 Ae Nào Cần IB" , 6 ,11816162894 )
-	DiscordLib:Notification("Thông Báo" , "Link Facebook Ở Phần Setting" , 6 ,11816162894 )
+	DiscordLib:Notification("Thông Báo" , "An Đẹ p Trai Số 1 Vi En" , 6 ,11816162894 )
+	DiscordLib:Notification("Thông Báo" , "Link Discord Ở Phần Setting" , 6 ,11816162894 )
  local UserInputService = game:GetService("UserInputService")
  local TweenService = game:GetService("TweenService")
  
@@ -4786,13 +4789,13 @@ local Misc = Library:Tab("Misc","rbxassetid://11447063791")
 local Setting = Library:Tab("Settings","rbxassetid://11446835336")
 --------------------------------------------------------------------
 
-Setting:Label(''WelCome AnDepZai Hub")
+Setting:Label("Hãy Và o Discord")
 
 Setting:Line()
 
-Setting:Button("Hã y Và o Discord",function()
+Setting:Button("Sao Chép Link Discord",function()
  
- setclipboard("https://discord.com/invite/wv5w6PNB")
+ setclipboard("https://discord.com/invite/sTv8Y8th")
   DiscordLib:Notification("Thông Báo" , "Đã Sao Chép Link Discord" , 10 ,11816162894 )
  end)
 
@@ -13654,7 +13657,7 @@ for k,v in pairs(ListHuhu) do
         if type(v)=="string" then 
             huhu.Image = v
         else
-            huhu.Image = "rbxassetid://16161818145"
+            huhu.Image = "rbxassetid://9945562382"
             huhu.ImageRectSize = Vector2.new(100,100)
             huhu.ImageRectOffset = v*100
         end 
@@ -14107,7 +14110,7 @@ for k,v in pairs(ListHuhu) do
         if type(v)=="string" then 
             huhu.Image = v
         else
-            huhu.Image = "rbxassetid://16161818145"
+            huhu.Image = "rbxassetid://9945562382"
             huhu.ImageRectSize = Vector2.new(100,100)
             huhu.ImageRectOffset = v*100
         end 
@@ -14209,4 +14212,4 @@ end)
 
 
 wait(3)
-loadstring(game:HttpGet('https://raw.githubusercontent.com/sadsadsafdfasf/Master/main/checkfm'))()
+loadstring(game:HttpGet('https://raw.githubusercontent.com/sadsadsafdfasf/Master/main/checkfm''))()
