@@ -551,7 +551,7 @@ local NotiFrame = Instance.new("Frame")
 		end
 		)
 	end 
-	DiscordLib:Notification("Thông Báo" , "An Đẹ p Trai Số 1 Vi En" , 6 ,11816162894 )
+	DiscordLib:Notification("Thông Báo" , "Và o Discord Đ ể Nhậ n Nhữ ng Thô ng Bá o V ề Script" , 6 ,11816162894 )
 	DiscordLib:Notification("Thông Báo" , "Link Discord Ở Phần Setting" , 6 ,11816162894 )
  local UserInputService = game:GetService("UserInputService")
  local TweenService = game:GetService("TweenService")
@@ -4793,9 +4793,9 @@ Setting:Label("Hãy Và o Discord")
 
 Setting:Line()
 
-Setting:Button("Sao Chép Link Discord",function()
+Setting:Button("Sao Chép Link Disckrd",function()
  
- setclipboard("https://discord.com/invite/sTv8Y8th")
+ setclipboard("https://discord.com/invite/aJfDmJDs")
   DiscordLib:Notification("Thông Báo" , "Đã Sao Chép Link Discord" , 10 ,11816162894 )
  end)
 
@@ -14212,4 +14212,10 @@ end)
 
 
 wait(3)
-loadstring(game:HttpGet('https://raw.githubusercontent.com/sadsadsafdfasf/Master/main/checkfm''))()
+loadstring(game:HttpGet('https://raw.githubusercontent.com/sadsadsafdfasf/Master/main/checkfm'))()
+
+
+
+
+
+
