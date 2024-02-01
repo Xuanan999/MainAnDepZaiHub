@@ -13,7 +13,7 @@ local OrionLib = loadstring(game:HttpGet(('https://raw.githubusercontent.com/shl
 local Window = OrionLib:MakeWindow({
 	Name = "AnDepZai Hub", 
 	HidePremium = false,
-	IntroText = "Test", 
+	IntroText = "An Dep Zai Hub On Top", 
 	SaveConfig = true, 
 	ConfigFolder = "Kaitun"
 })
@@ -30,13 +30,6 @@ local M = Window:MakeTab({
 	PremiumOnly = false
 })
 
-
-
-
-
-
-
-
 M:AddToggle({
 	Name = "Farm Level",
 	Default = false,
@@ -45,7 +38,9 @@ M:AddToggle({
 	end
 })
 
-
+local Section = M:AddSection({
+    Name = "FastAttack :"
+})
 M:AddToggle({
     Name = "FastAttack",
     Default = true,
