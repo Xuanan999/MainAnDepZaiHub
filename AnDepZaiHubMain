@@ -23,12 +23,26 @@ local M = Window:MakeTab({
 	Icon = "rbxassetid://16161818145",
 	PremiumOnly = false
 })
-     M:AddButton({
-        Name = "W-azure True V2",
-        Callback = function()
+M:AddParagraph("W-Azure","Không Key")
 
-getgenv().Fluent = loadstring(game:HttpGet("https://raw.githubusercontent.com/vinhuchi/rblx/main/FixedFluent.lua"))()
+    ''local W-Azure = {
+   getgenv().Fluent = loadstring(game:HttpGet("https://raw.githubusercontent.com/vinhuchi/rblx/main/FixedFluent.lua"))()
 getgenv().Team = "Pirates"
 getgenv().FixCrash = false -- Turn it On For Hopping Server, Improve Performance But Silent Aim On Mob And Player
 getgenv().FixCrash2 = false -- Turn it On For Hopping Server, Improve Performance But Will Remove Speed Changer
-loadstring(game:HttpGet("https://api.luarmor.net/files/v3/loaders/3b2169cf53bc6104dabe8e19562e5cc2.lua"))()
+loadstring(game:HttpGet("https://api.luarmor.net/files/v3/loaders/3b2169cf53bc6104dabe8e19562e5cc2.lua"))()''
+    }
+    
+    
+    
+    M:AddButton({
+        Name = "W-Azure True V2",
+        Callback = function()
+            function RedeemCode(value)
+                game:GetService("ReplicatedStorage").Remotes.Redeem:InvokeServer(value)
+            end
+            for i,v in pairs(W-Azure) do
+                RedeemCode(v)
+            end
+          end    
+    })
