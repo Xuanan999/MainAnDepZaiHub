@@ -7,132 +7,8 @@ elseif game.PlaceId == 7449423635 then
 else
     game:GetService("Players").LocalPlayer:Kick("Do not Support, Please wait...")
 end
-       
-        function AutoHaki()
-	if not game:GetService("Players").LocalPlayer.Character:FindFirstChild("HasBuso") then
-		game:GetService("ReplicatedStorage").Remotes.CommF_:InvokeServer("Buso")
-	end
-end
- 
-function EquipWeapon(ToolSe)
-	if not _G.NotAutoEquip then
-		if game.Players.LocalPlayer.Backpack:FindFirstChild(ToolSe) then
-			Tool = game.Players.LocalPlayer.Backpack:FindFirstChild(ToolSe)
-			wait(.1)
-			game.Players.LocalPlayer.Character.Humanoid:EquipTool(Tool)
-		end
-	end
-end
-
- function topos(Pos)
-        Distance = (Pos.Position - game.Players.LocalPlayer.Character.HumanoidRootPart.Position).Magnitude
-        if game.Players.LocalPlayer.Character.Humanoid.Sit == true then game.Players.LocalPlayer.Character.Humanoid.Sit = false end
-        pcall(function() tween = game:GetService("TweenService"):Create(game.Players.LocalPlayer.Character.HumanoidRootPart,TweenInfo.new(Distance/320, Enum.EasingStyle.Linear),{CFrame = Pos}) end)
-        tween:Play()
-        if Distance <= 250 then
-            tween:Cancel()
-            game.Players.LocalPlayer.Character.HumanoidRootPart.CFrame = Pos
-        end
-        if _G.StopTween == true then
-            tween:Cancel()
-            _G.Clip = false
-        end
-    end
-
-local OrionLib = loadstring(game:HttpGet(('https://raw.githubusercontent.com/shlexware/Orion/main/source')))()
-local Window = OrionLib:MakeWindow({
-	Name = "AnDepZai Hub", 
-	HidePremium = false,
-	IntroText = "An Dep Zai Hub On Top", 
-	SaveConfig = true, 
-	ConfigFolder = "Dep Zai Co Gi Sai"
-})
-
-local W = Window:MakeTab({
-    Name = "👋 Welcome",
-    Icon = "rbxassetid://16161818145",
-    PremiumOnly = false
-})
-
-local M = Window:MakeTab({
-	Name = "🏬 General",
-	Icon = "rbxassetid://16161818145",
-	PremiumOnly = false
-})
-
-local SH = Window:MakeTab({
-    Name = "🛒 Shop",
-    Icon = "rbxassetid://16161818145",
-    PremiumOnly = false
-})
-
-local Section = M:AddSection({
-        Name = "Other Farm"
-    })
-
-    M:AddParagraph("Redeem Code","Hãy Ấn Vào Redeem Code Nó Sẽ Nhập Hết Code Blox Fruit.")
-
-    local x2Code = {
-        "JULYUPDATE_RESET",
-        "staffbattle",
-        "Sub2CaptainMaui",
-        "SUB2GAMERROBOT_RESET1",
-        "KittGaming",
-        "Sub2Fer999",
-        "Enyu_is_Pro",
-        "Magicbus",
-        "ENYU_IS_PRO",
-        "FUDD10",
-        "BIGNEWS",
-        "THEGREATACE",
-        "SUB2GAMERROBOT_EXP1",
-        "STRAWHATMAIME",
-        "SUB2OFFICIALNOOBIE",
-        "SUB2NOOBMASTER123",
-        "SUB2DAIGROCK",
-        "AXIORE",
-        "TANTAIGAMIMG",
-        "STRAWHATMAINE",
-        "JCWK",
-        "FUDD10_V2",
-        "SUB2FER999",
-        "MAGICBIS",
-        "TY_FOR_WATCHING",
-        "STARCODEHEO"
-    }
-    
-    
-    
-    M:AddButton({
-        Name = "Nhập Tất Cả Code X2",
-        Callback = function()
-            function RedeemCode(value)
-                game:GetService("ReplicatedStorage").Remotes.Redeem:InvokeServer(value)
-            end
-            for i,v in pairs(x2Code) do
-                RedeemCode(v)
-            end
-          end    
-    })
-
-    local Section = M:AddSection({
-        Name = "Auto Farm Level"
-    })
-
-
-M:AddParagraph("Main Farm","Farm Level Không Khó,chỉ cần ấn vào auto farm là xog")
-
-ToggleFarm = M:AddToggle({
-    Name = "Auto Farm",
-    Default = false,
-    Flag = "LevelFarm",
-    Save = true,
-    Callback = function(Value)
-        _G.AutoFarm = Value
-        StopTween(_G.AutoFarm)
-    end    
-})
-function CheckQuest() 
+     
+         function CheckQuest() 
     MyLevel = game:GetService("Players").LocalPlayer.Data.Level.Value
     if World1 then
         if MyLevel == 1 or MyLevel <= 9 then
@@ -756,7 +632,131 @@ function CheckQuest()
             CFrameMon = CFrame.new(-16933.2129, 93.3503036, 999.450989)
         end
     end
+      
+        function AutoHaki()
+	if not game:GetService("Players").LocalPlayer.Character:FindFirstChild("HasBuso") then
+		game:GetService("ReplicatedStorage").Remotes.CommF_:InvokeServer("Buso")
+	end
 end
+ 
+function EquipWeapon(ToolSe)
+	if not _G.NotAutoEquip then
+		if game.Players.LocalPlayer.Backpack:FindFirstChild(ToolSe) then
+			Tool = game.Players.LocalPlayer.Backpack:FindFirstChild(ToolSe)
+			wait(.1)
+			game.Players.LocalPlayer.Character.Humanoid:EquipTool(Tool)
+		end
+	end
+end
+
+ function topos(Pos)
+        Distance = (Pos.Position - game.Players.LocalPlayer.Character.HumanoidRootPart.Position).Magnitude
+        if game.Players.LocalPlayer.Character.Humanoid.Sit == true then game.Players.LocalPlayer.Character.Humanoid.Sit = false end
+        pcall(function() tween = game:GetService("TweenService"):Create(game.Players.LocalPlayer.Character.HumanoidRootPart,TweenInfo.new(Distance/320, Enum.EasingStyle.Linear),{CFrame = Pos}) end)
+        tween:Play()
+        if Distance <= 250 then
+            tween:Cancel()
+            game.Players.LocalPlayer.Character.HumanoidRootPart.CFrame = Pos
+        end
+        if _G.StopTween == true then
+            tween:Cancel()
+            _G.Clip = false
+        end
+    end
+
+local OrionLib = loadstring(game:HttpGet(('https://raw.githubusercontent.com/shlexware/Orion/main/source')))()
+local Window = OrionLib:MakeWindow({
+	Name = "AnDepZai Hub", 
+	HidePremium = false,
+	IntroText = "An Dep Zai Hub On Top", 
+	SaveConfig = true, 
+	ConfigFolder = "Dep Zai Co Gi Sai"
+})
+
+local W = Window:MakeTab({
+    Name = "👋 Welcome",
+    Icon = "rbxassetid://16161818145",
+    PremiumOnly = false
+})
+
+local M = Window:MakeTab({
+	Name = "🏬 General",
+	Icon = "rbxassetid://16161818145",
+	PremiumOnly = false
+})
+
+local SH = Window:MakeTab({
+    Name = "🛒 Shop",
+    Icon = "rbxassetid://16161818145",
+    PremiumOnly = false
+})
+
+local Section = M:AddSection({
+        Name = "Other Farm"
+    })
+
+    M:AddParagraph("Redeem Code","Hãy Ấn Vào Redeem Code Nó Sẽ Nhập Hết Code Blox Fruit.")
+
+    local x2Code = {
+        "JULYUPDATE_RESET",
+        "staffbattle",
+        "Sub2CaptainMaui",
+        "SUB2GAMERROBOT_RESET1",
+        "KittGaming",
+        "Sub2Fer999",
+        "Enyu_is_Pro",
+        "Magicbus",
+        "ENYU_IS_PRO",
+        "FUDD10",
+        "BIGNEWS",
+        "THEGREATACE",
+        "SUB2GAMERROBOT_EXP1",
+        "STRAWHATMAIME",
+        "SUB2OFFICIALNOOBIE",
+        "SUB2NOOBMASTER123",
+        "SUB2DAIGROCK",
+        "AXIORE",
+        "TANTAIGAMIMG",
+        "STRAWHATMAINE",
+        "JCWK",
+        "FUDD10_V2",
+        "SUB2FER999",
+        "MAGICBIS",
+        "TY_FOR_WATCHING",
+        "STARCODEHEO"
+    }
+    
+    
+    
+    M:AddButton({
+        Name = "Nhập Tất Cả Code X2",
+        Callback = function()
+            function RedeemCode(value)
+                game:GetService("ReplicatedStorage").Remotes.Redeem:InvokeServer(value)
+            end
+            for i,v in pairs(x2Code) do
+                RedeemCode(v)
+            end
+          end    
+    })
+
+    local Section = M:AddSection({
+        Name = "Auto Farm Level"
+    })
+
+
+M:AddParagraph("Main Farm","Farm Level Không Khó,chỉ cần ấn vào auto farm là xog")
+
+ToggleFarm = M:AddToggle({
+    Name = "Auto Farm",
+    Default = false,
+    Flag = "LevelFarm",
+    Save = true,
+    Callback = function(Value)
+        _G.AutoFarm = Value
+        StopTween(_G.AutoFarm)
+    end    
+})
 
 
 
