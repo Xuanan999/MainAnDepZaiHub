@@ -653,13 +653,7 @@ function StopTween(target)
 end
 
 local OrionLib = loadstring(game:HttpGet(('https://raw.githubusercontent.com/shlexware/Orion/main/source')))()
-local Window = OrionLib:MakeWindow({
-	Name = "AnDepZai Hub", 
-	HidePremium = false,
-	IntroText = "An Dep Zai Hub On Top", 
-	SaveConfig = true, 
-	ConfigFolder = "Dep Zai Co Gi Sai"
-})
+local Window = OrionLib:MakeWindow({Name = "AnDepZai Hub", HidePremium = false, IntroText = "An Dep Zai Hub On Top", SaveConfig = true, ConfigFolder = "AnDepZai Hub"})
 
 local W = Window:MakeTab({
     Name = "👋 Welcome",
@@ -872,7 +866,7 @@ local Section = M:AddSection({
         Name = "Bring Mob"
     })
 
-M:AddToggle({
+ST:AddToggle({
     Name = "Bring Mobs",
     Default = true,
     Flag = "Bring Mobs",
@@ -910,7 +904,7 @@ spawn(function()
     end
 end)
 
-local Section = M:AddSection({
+local Section = ST:AddSection({
     Name = "Fast Attack :"
 })
 
@@ -1017,11 +1011,11 @@ spawn(function()
     end
 end)
 
-local Section = M:AddSection({
+local Section = ST:AddSection({
     Name = "Bypass Teleport"
 })
 
-M:AddToggle({
+ST:AddToggle({
     Name = "Bypass TP[Test]",
     Default = false,
     Flag = "Bypass TP",
