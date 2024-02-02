@@ -667,18 +667,6 @@ local M = Window:MakeTab({
 	PremiumOnly = false
 })
 
-local ST = Window:MakeTab({
-    Name = "🛠️ Setting",
-    Icon = "rbxassetid://16161818145",
-    PremiumOnly = false
-})
-
-local SH = Window:MakeTab({
-    Name = "🛒 Shop",
-    Icon = "rbxassetid://16161818145",
-    PremiumOnly = false
-})
-
 local Section = M:AddSection({
     Name = "Select Weapon"
 })
@@ -737,112 +725,6 @@ task.spawn(function()
     end
     end)
 
-if World2 and World1 then
-    local Section = M:AddSection({
-        Name = "BOOTS"
-    })
-
-    M:AddButton({
-        Name = "BOOST FPS",
-        Callback = function()
-            pcall(function()
-                game:GetService("Lighting").FantasySky:Destroy()
-                local g = game
-                local w = g.Workspace
-                local l = g.Lighting
-                local t = w.Terrain
-                t.WaterWaveSize = 0
-                t.WaterWaveSpeed = 0
-                t.WaterReflectance = 0
-                t.WaterTransparency = 0
-                l.GlobalShadows = false
-                l.FogEnd = 9e9
-                l.Brightness = 0
-                settings().Rendering.QualityLevel = "Level01"
-                for i, v in pairs(g:GetDescendants()) do
-                    if v:IsA("Part") or v:IsA("Union") or v:IsA("CornerWedgePart") or v:IsA("TrussPart") then 
-                        v.Material = "Plastic"
-                        v.Reflectance = 0
-                    elseif v:IsA("Decal") or v:IsA("Texture") then
-                        v.Transparency = 1
-                    elseif v:IsA("ParticleEmitter") or v:IsA("Trail") then
-                        v.Lifetime = NumberRange.new(0)
-                    elseif v:IsA("Explosion") then
-                        v.BlastPressure = 1
-                        v.BlastRadius = 1
-                    elseif v:IsA("Fire") or v:IsA("SpotLight") or v:IsA("Smoke") or v:IsA("Sparkles") then
-                        v.Enabled = false
-                    elseif v:IsA("MeshPart") then
-                        v.Material = "Plastic"
-                        v.Reflectance = 0
-                        v.TextureID = 10385902758728957
-                    end
-                end
-                for i, e in pairs(l:GetChildren()) do
-                    if e:IsA("BlurEffect") or e:IsA("SunRaysEffect") or e:IsA("ColorCorrectionEffect") or e:IsA("BloomEffect") or e:IsA("DepthOfFieldEffect") then
-                        e.Enabled = false
-                    end
-                end
-                for i, v in pairs(game:GetService("Workspace").Camera:GetDescendants()) do
-                    if v.Name == ("Water;") then
-                        v.Transparency = 1
-                        v.Material = "Plastic"
-                    end
-                end
-            end)
-          end    
-    })
-end
-
-    local Section = M:AddSection({
-        Name = "Other Farm"
-    })
-
-    M:AddParagraph("Redeem Code","Nhấn Vào Auto Nhập Tất Cả Code X2 Để Nhận.")
-
-    local x2Code = {
-        "JULYUPDATE_RESET",
-        "staffbattle",
-        "Sub2CaptainMaui",
-        "SUB2GAMERROBOT_RESET1",
-        "KittGaming",
-        "Sub2Fer999",
-        "Enyu_is_Pro",
-        "Magicbus",
-        "ENYU_IS_PRO",
-        "FUDD10",
-        "BIGNEWS",
-        "THEGREATACE",
-        "SUB2GAMERROBOT_EXP1",
-        "STRAWHATMAIME",
-        "SUB2OFFICIALNOOBIE",
-        "SUB2NOOBMASTER123",
-        "SUB2DAIGROCK",
-        "AXIORE",
-        "TANTAIGAMIMG",
-        "STRAWHATMAINE",
-        "JCWK",
-        "FUDD10_V2",
-        "SUB2FER999",
-        "MAGICBIS",
-        "TY_FOR_WATCHING",
-        "STARCODEHEO"
-    }
-    
-    
-    
-    M:AddButton({
-        Name = "Auto Nhập Tất Cả Code X2",
-        Callback = function()
-            function RedeemCode(value)
-                game:GetService("ReplicatedStorage").Remotes.Redeem:InvokeServer(value)
-            end
-            for i,v in pairs(x2Code) do
-                RedeemCode(v)
-            end
-          end    
-    })
-
     local Section = M:AddSection({
         Name = "Auto Farm Level"
     })
@@ -866,7 +748,7 @@ local Section = M:AddSection({
         Name = "Bring Mob"
     })
 
-ST:AddToggle({
+M:AddToggle({
     Name = "Bring Mobs",
     Default = true,
     Flag = "Bring Mobs",
@@ -904,7 +786,7 @@ spawn(function()
     end
 end)
 
-local Section = ST:AddSection({
+local Section = M:AddSection({
     Name = "Fast Attack :"
 })
 
@@ -1010,105 +892,3 @@ spawn(function()
         end
     end
 end)
-
-local Section = ST:AddSection({
-    Name = "Bypass Teleport"
-})
-
-ST:AddToggle({
-    Name = "Bypass TP[Test]",
-    Default = false,
-    Flag = "Bypass TP",
-    Save = true,
-    Callback = function(Value)
-        BypassTP = true 
-    end    
-})
-
-
-local Section = M:AddSection({
-    Name = "Distance Mobs"
-})
-
-PosY = 30
-M:AddSlider({
-    Name = "Distance Mob",
-    Min = 0,
-    Max = 65,
-    Default = PosY,
-    Color = Color3.fromRGB(255,255,255),
-    Increment = 1,
-    ValueName = "Distance",
-    Default = false,
-    Flag = "Distance",
-    Save = true,
-    Callback = function(Value)
-        PosY = Value
-    end    
-})
-
-local Section = M:AddSection({
-    Name = "Farm Fast : Lv 10 => 120"
-})
-
-Farmfasttoggle = M:AddToggle({
-    Name = "Auto Farm Fast",
-    Default = false,
-    Flag = "Farm Fast",
-    Save = true,
-    Callback = function(Value)
-        _G.Farmfast = Value
-        StopTween(_G.Farmfast)
-    end    
-})
-
-local Section = M:AddSection({
-    Name = "Kaitun Không Giòn"
-})
-
-M:AddParagraph("Kaitun/Cantay","Beta Nên Sài Như Lồn")
-
-M:AddToggle({
-    Name = "Kaitun[Ko có kill players]",
-    Default = false,
-    Flag = "Kaitun",
-    Save = true,
-    Callback = function(Value)
-        _G.RedeemCode = Value
-        _G.AutoFarm = Value
-        _G.Farmfast = Value
-       _G.SelectWeapon = "Combat"
-       _G.AutoPlayerHunter = Value
-       _G.Auto_Stats_Kaitun = Value
-       _G.Auto_Saber = Value
-       _G.AutoSuperhuman = Value
-       _G.AutoBartilo = Value
-       _G.AutoBuyLegendarySword = Value
-       _G.BuyAllAib = Value
-       StopTween(_G.AutoFarm)
-       StopTween(_G.Hunter)
-       StopTween(_G.Farmfast)
-       StopTween(_G.Auto_Saber)
-    end    
-})
-
-M:AddToggle({
-    Name = "Auto Click [Kick]",
-    Default = false,
-    Flag = "Auto Click",
-    Save = true,
-    Callback = function(Value)
-        _G.AutoClick = Value
-    end    
-})
-
-spawn(function()
-    game:GetService("RunService").RenderStepped:Connect(function()
-        if _G.AutoClick or Fastattack then
-             pcall(function()
-                game:GetService'VirtualUser':CaptureController()
-                game:GetService'VirtualUser':Button1Down(Vector2.new(0,1,0,1))
-            end)
-        end
-    end)
-   end)
