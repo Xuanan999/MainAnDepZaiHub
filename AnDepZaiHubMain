@@ -2663,10 +2663,10 @@ local Section = W:AddSection({
     Name = "Update"
 })
 
-W:AddLabel("[+] Night Hub is back!")
-W:AddLabel("[+] I Not Skidder!")
-W:AddLabel("[+] I Will overcome Hirimii,MTriet Hub!!!")
-W:AddLabel("[+] Load Script Faster!")
+W:AddLabel("[+] AnDepZai Hub Beta")
+W:AddLabel("[+]Cày Thuê Ib Zalo 0362374399")
+W:AddLabel("[+] Farm Level Bị Lỗi")
+W:AddLabel("[+] Script Execute Lên Nhanh")
 
 local Section = W:AddSection({
     Name = "Status"
@@ -3019,7 +3019,7 @@ end
     
     
     M:AddButton({
-        Name = "Redeem all code",
+        Name = "Nhập Tất Cả Code",
         Callback = function()
             function RedeemCode(value)
                 game:GetService("ReplicatedStorage").Remotes.Redeem:InvokeServer(value)
@@ -3049,11 +3049,113 @@ ToggleFarm = M:AddToggle({
 })
 
 local Section = M:AddSection({
+    Name = "Mastery Menu"
+})
+
+M:AddParagraph("Mastery Menu","Click To Box to Start Farm Mastery")
+
+M:AddToggle({
+    Name = "Auto Farm BF Mastery",
+    Default = false,
+    Flag = "Mastery",
+    Save = true,
+    Callback = function(Value)
+        _G.AutoFarmFruitMastery = Value
+        StopTween(_G.AutoFarmFruitMastery)
+        if _G.AutoFarmFruitMastery == false then
+            UseSkill = false 
+        end
+    end    
+})
+
+M:AddToggle({
+    Name = "Auto Farm Gun Mastery",
+    Default = false,
+    Flag = "Gun Mastery",
+    Save = true,
+    Callback = function(Value)
+        _G.AutoFarmGunMastery = Value
+        StopTween(_G.AutoFarmGunMastery)
+    end    
+})
+
+    M:AddSlider({
+        Name = "Health Mob",
+        Min = 0,
+        Max = 100,
+        Default = 25,
+        Color = Color3.fromRGB(255,255,255),
+        Increment = 1,
+        ValueName = "Health",
+        Flag = "Health Mob",
+        Save = true,
+        Callback = function(Value)
+            _G.Kill_At = Value
+        end    
+    })
+
+    M:AddToggle({
+        Name = "Skill Z",
+        Default = false,
+        Flag = "Skill Z",
+        Save = true,
+        Callback = function(Value)
+            _G.SkillZ = Value
+        end    
+    })
+
+    M:AddToggle({
+        Name = "Skill! X",
+        Default = false,
+        Default = false,
+        Flag = "Skill X",
+        Save = true,
+        Callback = function(Value)
+            _G.SkillX = Value
+        end    
+    })
+
+
+    M:AddToggle({
+        Name = "Skill C",
+        Default = false,
+        Default = false,
+        Flag = "Skill C",
+        Save = true,
+        Callback = function(Value)
+            _G.SkillC = Value
+        end    
+    })
+
+
+    M:AddToggle({
+        Name = "Skill V",
+        Default = false,
+        Default = false,
+        Flag = "Skill V",
+        Save = true,
+        Callback = function(Value)
+            _G.SkillV = Value
+        end    
+    })
+
+    M:AddToggle({
+        Name = "Skill F",
+        Default = false,
+        Default = false,
+        Flag = "Skill F",
+        Save = true,
+        Callback = function(Value)
+            _G.SkillF = Value
+        end    
+    })
+
+    local Section = M:AddSection({
         Name = "Bring Mob"
     })
 
 M:AddToggle({
-    Name = "Bring Mobs[TEST]",
+    Name = "Bring Mobs[Fix]",
     Default = true,
     Flag = "Bring Mobs",
     Save = false,
@@ -3210,3 +3312,256 @@ M:AddToggle({
         BypassTP = true 
     end    
 })
+
+
+local Section = M:AddSection({
+    Name = "Distance Mobs"
+})
+
+PosY = 30
+M:AddSlider({
+    Name = "Distance Mob",
+    Min = 0,
+    Max = 65,
+    Default = PosY,
+    Color = Color3.fromRGB(255,255,255),
+    Increment = 1,
+    ValueName = "Distance",
+    Default = false,
+    Flag = "Distance",
+    Save = true,
+    Callback = function(Value)
+        PosY = Value
+    end    
+})
+
+local Section = M:AddSection({
+    Name = "Farm Fast : Lv 10 => 120"
+})
+
+Farmfasttoggle = M:AddToggle({
+    Name = "Auto Farm Fast",
+    Default = false,
+    Flag = "Farm Fast",
+    Save = true,
+    Callback = function(Value)
+        _G.Farmfast = Value
+        StopTween(_G.Farmfast)
+    end    
+})
+
+local Section = M:AddSection({
+    Name = "Kaitun Met Vaiz"
+})
+
+M:AddParagraph("Kaitun/Cantay","Kaitun bản này đell khác gì bản kia.")
+
+M:AddToggle({
+    Name = "Kaitun[Ko có kill players]",
+    Default = false,
+    Flag = "Kaitun",
+    Save = true,
+    Callback = function(Value)
+        _G.RedeemCode = Value
+        _G.AutoFarm = Value
+        _G.Farmfast = Value
+       _G.SelectWeapon = "Combat"
+       _G.AutoPlayerHunter = Value
+       _G.Auto_Stats_Kaitun = Value
+       _G.Auto_Saber = Value
+       _G.AutoSuperhuman = Value
+       _G.AutoBartilo = Value
+       _G.AutoBuyLegendarySword = Value
+       _G.BuyAllAib = Value
+       StopTween(_G.AutoFarm)
+       StopTween(_G.Hunter)
+       StopTween(_G.Farmfast)
+       StopTween(_G.Auto_Saber)
+    end    
+})
+
+M:AddToggle({
+    Name = "Auto Click[Kick]",
+    Default = false,
+    Flag = "Auto Click",
+    Save = true,
+    Callback = function(Value)
+        _G.AutoClick = Value
+    end    
+})
+
+spawn(function()
+    game:GetService("RunService").RenderStepped:Connect(function()
+        if _G.AutoClick or Fastattack then
+             pcall(function()
+                game:GetService'VirtualUser':CaptureController()
+                game:GetService'VirtualUser':Button1Down(Vector2.new(0,1,0,1))
+            end)
+        end
+    end)
+   end)
+
+spawn(function()
+    while wait() do
+    if _G.RedeemCode then
+    if MyLevel >= 10 then
+        function RedeemCode(value)
+            game:GetService("ReplicatedStorage").Remotes.Redeem:InvokeServer(value)
+        end
+        for i,v in pairs(x2Code) do
+            RedeemCode(v)
+                end
+            end
+        end
+    end
+end)
+
+   local Section = M:AddSection({
+    Name = "Mob & Boss Farm"
+})
+
+if World1 then
+    M:AddDropdown({
+        Name = "Select Mobs",
+        Default = "",
+        Options = {"Bandit","Monkey","Gorilla","Pirate","Brute","Desert Bandit","Desert Officer","Snow Bandit","Snowman","Chief Petty Officer","Sky Bandit","Dark Master","Prisoner", "Dangerous Prisoner","Toga Warrior","Gladiator","Military Soldier","Military Spy","Fishman Warrior","Fishman Commando","God's Guard","Shanda","Royal Squad","Royal Soldier","Galley Pirate ","Galley Captain"},
+        Callback = function(Value)
+            SelectMonster = Value
+        end    
+    })
+    end
+    
+    if World2 then
+    M:AddDropdown({
+        Name = "Select Mobs",
+        Default = "",
+        Options = {"Raider","Mercenary","Swan Pirate","Factory Staff","Marine Lieutenant","Marine Captain","Zombie","Vampire","Snow Trooper","Winter Warrior","Lab Subordinate","Horned Warrior","Magma Ninja","Lava Pirate","Ship Deckhand","Ship Engineer","Ship Steward","Ship Officer","Arctic Warrior","Snow Lurker","Sea Soldier","Water Fighter"},
+        Callback = function(Value)
+            SelectMonster = Value
+        end    
+    }) 
+    end
+    
+    if World3 then
+    M:AddDropdown({
+        Name = "Select Mobs",
+        Default = "",
+        Options = {"Pirate Millionaire","Dragon Crew Warrior","Dragon Crew Archer","Female Islander","Giant Islander","Marine Commodore","Marine Rear Admiral","Fishman Raider","Fishman Captain","Forest Pirate","Mythological Pirate","Jungle Pirate","Musketeer Pirate","Reborn Skeleton","Living Zombie","Demonic Soul","Posessed Mummy", "Peanut Scout", "Peanut President", "Ice Cream Chef", "Ice Cream Commander", "Cookie Crafter", "Cake Guard", "Baking Staff", "Head Baker", "Cocoa Warrior", "Chocolate Bar Battler", "Sweet Thief", "Candy Rebel", "Candy Pirate", "Snow Demon"},
+        Callback = function(Value)
+            SelectMonster = Value
+        end    
+    }) 
+    end
+    
+    M:AddToggle({
+        Name = "Farm Mob",
+        Default = false,
+        Callback = function(Value)
+            _G.AutoFarmSelectMonster = Value
+        end    
+    }) 
+
+local Section = M:AddSection({
+    Name = "Nearest Farm"
+})
+
+M:AddToggle({
+    Name = "Auto Farm Nearest",
+    Default = false,
+    Flag = "Auto Farm Nearest",
+    Save = true,
+    Callback = function(Value)
+        _G.AutoFarmNearest = Value
+        StopTween(_G.AutoFarmNearest)
+    end    
+})
+
+    local Section = M:AddSection({
+        Name = "Chest Farm"
+    })
+
+TweenChest = M:AddToggle({
+        Name = "Auto Chest [MUP]",
+        Default = false,
+        Flag = "Auto Chest",
+        Save = true,
+        Callback = function(Value)
+            AutoFarmChest = Value
+            StopTween(AutoFarmChest)
+        end    
+    })
+
+    M:AddToggle({
+        Name = "Auto Chest[Bypass]",
+        Default = false,
+        Flag = "Auto Chest[Bypass]",
+        Save = true,
+        Callback = function(Value)
+            _G.ChestBypass = Value
+        end    
+    })
+
+M:AddToggle({
+    Name = "Stop Only Dark Key or God's Chalice",
+    Default = false,
+    Flag = "Stop Only Dark Key or God's Chalice",
+    Save = true,
+    Callback = function(Value)
+        _G.StopChest = Value
+    end    
+})
+spawn(function()
+    while wait() do
+    if _G.StopChest then
+        if game.Players.LocalPlayer.Backpack:FindFirstChild("Fist of Darkness") or game.Players.LocalPlayer.Character:FindFirstChild("Fist of Darkness") or game.Players.LocalPlayer.Backpack:FindFirstChild("God's Chalice") or game.Players.LocalPlayer.Character:FindFirstChild("God's Chalice") then
+            AutoFarmChest = false
+            StopTween(AutoFarmChest)
+            TweenChest:Set(false)
+        end
+    end
+end
+end)
+
+local Section = M:AddSection({
+    Name = "Bone Menu"
+})
+
+local Bone = M:AddLabel("Bone : ")
+
+spawn(function()
+    while wait() do
+        pcall(function()
+            Bone:Set("Bone You Have : "..(game:GetService("ReplicatedStorage").Remotes.CommF_:InvokeServer("Bones","Check")))
+        end)
+    end
+end)
+
+ToggleBone = M:AddToggle({
+    Name = "Auto Farm Bone",
+    Default = false,
+    Flag = "Auto Farm Bone",
+    Save = true,
+    Callback = function(Value)
+        _G.Auto_Bone = Value
+        StopTween(_G.Auto_Bone)
+    end    
+})
+        
+ToggleRandom = M:AddToggle({
+        Name = "Auto Random Bone",
+        Default = false,
+        Flag = "Auto Random Bone",
+        Save = true,
+        Callback = function(Value)
+            _G.Auto_Random_Bone = Value
+        end    
+    })
+    spawn(function()
+        pcall(function()
+            while wait(.1) do
+                if _G.Auto_Random_Bone then    
+                    game:GetService("ReplicatedStorage").Remotes.CommF_:InvokeServer("Bones","Buy",1,1)
+                end
+            end
+        end)
+    end)
